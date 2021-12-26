@@ -11,7 +11,7 @@ endif
 .RECIPEPREFIX = >
 
 test: ## Test HEAD
-> asdf plugin-test k2tf . --asdf-tool-version latest  k2tf --version
+> asdf plugin-test $(PLUGIN_NAME) . --asdf-tool-version latest 
 
 fmt: ## Format bash code
 > shfmt -l -w .
