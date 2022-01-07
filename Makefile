@@ -10,13 +10,13 @@ ifeq ($(origin .RECIPEPREFIX), undefined)
 endif
 .RECIPEPREFIX = >
 
-test: ## Test HEAD
+asdf/test: ## Test HEAD of current asdf plugin
 > asdf plugin-test $(PLUGIN_NAME) . --asdf-tool-version latest
 
-fmt: ## Format bash code
+shell/fmt: ## Format bash code
 > shfmt -l -w .
 
-install-asdf: ## install asdf for bash
+asdf/install: ## install asdf for bash
 > @if ! command -v asdf &> /dev/null
 > @then
 >     echo "Installing ASDF for Bash"
@@ -24,11 +24,11 @@ install-asdf: ## install asdf for bash
 >     @echo -e '\nsource $$HOME/.asdf/asdf.sh' >> ~/.bashrc
 >     @source $$HOME/.asdf/asdf.sh
 > @fi
- 
 
-
-install-tools: install-asdf ## install all tools needed with the asdf version manager
+asdf/install-plugins: ## install all tools needed with the asdf version manager
 > @cut -d' ' -f1 .tool-versions|xargs -i asdf plugin add {} || true
+
+asdf/install-tools: asdf/install-plugins ## install all tools needed with the asdf version manager
 > @asdf install
 
 help:
