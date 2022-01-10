@@ -16,7 +16,7 @@ jobs:
       - name: Run ShellCheck
         run: scripts/shellcheck.bash
 
-  shellfmt:
+  validate-fmt:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
