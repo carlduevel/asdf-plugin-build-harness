@@ -3,7 +3,7 @@ name: Test
 on:
   workflow_call:
     inputs:
-      tool-name:
+      command:
         required: true
         type: string
 
