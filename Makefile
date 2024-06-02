@@ -27,7 +27,7 @@ asdf/install: ## install asdf for bash
 > @fi
 
 asdf/install-plugins: ## install all tools needed with the asdf version manager
-> @cut -d' ' -f1 .tool-versions|xargs -i asdf plugin add {} || true
+> @cut -d' ' -f1 .tool-versions | xargs -L1 asdf plugin add
 
 asdf/install-tools: asdf/install-plugins ## install all tools needed with the asdf version manager
 > @asdf install
